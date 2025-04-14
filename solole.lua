@@ -37,7 +37,18 @@ local function antiAFK()
 end
 
 spawn(antiAFK)
+local selectedDifficulty = "Regular"
 
+
+local difficultyDropdown = Tabs.MainTab:Dropdown({
+    Title = "Select Mode",  
+    Default = "Regular",  
+    Values = {"Regular", "Hard", "Nightmare"},  
+    Callback = function(selected)
+        selectedDifficulty = selected  
+        print("Selected Difficulty: " .. selectedDifficulty)
+    end
+})
 
 local selectedMap = nil
 local selectedPointType = nil
